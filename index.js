@@ -1,0 +1,83 @@
+// TODO: Include packages needed for this application
+import inquirer from 'inquirer';
+import fs from 'fs';
+import questions from './questions';
+import generateMarkdown from './generateMarkdown';
+
+
+// TODO: Create an array of questions for user input
+const questions = [
+    {
+        type: 'input',
+        message: 'WAht is your project title?',
+        name: 'project title',
+    },
+    {
+        type: 'input',
+        message: 'How would you describe your project?',
+        name: 'description',
+    },
+    {
+        type: 'input',
+        message: 'How do you install your project?',
+        name: 'installation',
+    },
+    {
+        type: 'input',
+        message: 'How do you use your project?',
+        name: 'usage',
+    },
+    {
+        type: 'input',
+        message: 'What license does your project use?',
+        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3-Clause', 'No License'],
+        name: 'license',
+    },
+    {
+        type: 'input',
+        message: 'How does someone contribute to your project?',
+        name: 'contributing',
+    },
+    {
+        type: 'input',
+        message: 'How do you run tests for your project?',
+        name: 'tests',
+    },
+    {
+        type: 'input',
+        message: 'What is your email address?',
+        name: 'email',
+    },
+    {
+        type: 'input',
+        message: 'What is your GitHub username?',
+        name: 'github',
+    },
+    {
+        type: 'input',
+        message: 'For questions, please contact [Your Name](email: youremail@example.com)',
+        name: 'questions',
+    }
+];
+
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+        err ? console.error('Error writing to README.md', err) : console.log('Successfully created a README.md template!')
+    );
+}
+
+// TODO: Create a function to initialize app
+function init() {
+    inquirer
+        .prompt(questions)
+        .then((answers) => {
+            console.log('User answers:', answers);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+// Function call to initialize app
+init();
