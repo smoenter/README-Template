@@ -1,15 +1,13 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
 import fs from 'fs';
-import questions from './questions';
-import generateMarkdown from './generateMarkdown';
 
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
-        message: 'WAht is your project title?',
+        message: 'What is your project title?',
         name: 'project title',
     },
     {
