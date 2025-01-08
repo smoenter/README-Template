@@ -76,10 +76,8 @@ function init() {
     inquirer
         .prompt(questions)
         .then((answers) => {
-        //   genreate README contents
-        const README= generateMarkdown(answers)
-        // write the README contents to a file 
-        writeToFile("README.md", README);
+         const README= generateMarkdown(answers)
+         writeToFile("README.md", README);
         })
         .catch((error) => {
             console.error('Error:', error);
