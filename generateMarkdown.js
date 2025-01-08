@@ -79,10 +79,7 @@ ${data.installation}
 ${data.usage}
 
 ## License
-This project is licensed under the ${renderLicenseSection(data.license)} License.
-
 ${renderLicenseBadge(data.license)}
-For more information, see the full [${data.license} License](${renderLicenseLink(data.license)}).
 
 ## Contributing
 If you'd like to contribute to this project, please fork the repository and submit a pull request.
