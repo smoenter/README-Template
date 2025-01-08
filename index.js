@@ -1,14 +1,14 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
 import fs from 'fs';
-
+import generateMarkdown from './generateMarkdown.js';
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
         message: 'What is your project title?',
-        name: 'project title',
+        name: 'title',
     },
     {
         type: 'input',
@@ -56,21 +56,30 @@ const questions = [
         message: 'For questions, please contact [Your Name](email: youremail@example.com)',
         name: 'questions',
     }
-];
+]
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) =>
-        err ? console.error('Error writing to README.md', err) : console.log('Successfully created a README.md template!')
-    );
+    fs.writeFile(fileName, data, (err) => {
+    if (err) {
+            console.error('Error writing file', err);
+    } else {
+            console.log('README.md successfully generated!');
+    }
+});
+
 }
+
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)
         .then((answers) => {
-            console.log('User answers:', answers);
+        //   genreate README contents
+        const README= generateMarkdown(answers)
+        // write the README contents to a file 
+        writeToFile("README.md", README);
         })
         .catch((error) => {
             console.error('Error:', error);

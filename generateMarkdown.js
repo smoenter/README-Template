@@ -53,7 +53,8 @@ For more information, see the full [${license} License](${licenseLink}).
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `
+
 # ${data.title}
 
 ## Description
