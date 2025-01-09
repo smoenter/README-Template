@@ -30,9 +30,8 @@ Xpert learning
 
 ## Badges
 
-If your project has a lot of features, list them here.
 ## How to Contribute
-
+Go to the gitHub Repo and make changes as you see fit to improve the repo.
 ## Tests
 npm tests
 ## Links
